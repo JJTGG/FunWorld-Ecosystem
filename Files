@@ -1,10 +1,1 @@
-FunWorld-Ecosystem/
-├── dex/                # For DEX Aggregator code
-├── games/              # For Web3 game projects
-├── launchpad/          # For launchpad code
-├── staking/            # For staking pool implementation
-├── docs/               # Documentation and guides
-├── contracts/          # Clarity smart contracts
-├── frontend/           # Frontend UI code
-├── README.md           # Main repository description
-└── LICENSE             # License for your repository
+
