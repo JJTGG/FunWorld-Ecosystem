@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FunWorld Launchpad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .neon {
+      color: #0f0;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    button {
+      background: #0f0;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@stacks/connect@6.0.1/dist/connect.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@stacks/transactions@5.2.1/dist/transactions.min.js"></script>
+</head>
+<body>
+  <h1 class="neon">FunWorld Launchpad</h1>
+  <p>Buy tokens securely using STX.</p>
+  <div id="app">
+    <p><strong>Token Price:</strong> <span id="tokenPrice">Loading...</span> STX</p>
+    <p><strong>Tokens Available:</strong> <span id="tokensAvailable">Loading...</span></p>
+    <input type="number" id="buyAmount" placeholder="Enter amount" />
+    <button onclick="buyTokens()">Buy Tokens</button>
+  </div>
+  <script>
+    const API_URL = 'https://stacks-node-api.testnet.stacks.co'; // Change for Mainnet
+
+    async function buyTokens() {
+      const amount = document.getElementById('buyAmount').value;
+      if (!amount || amount <= 0) {
+        alert('Please enter a valid amount.');
+        return;
+      }
+
+      const transaction = {
+        contractAddress: 'SPXXXXXXXXXXXXXX', // Replace with your contract address
+        contractName: 'token-sale',
+        functionName: 'buy-tokens',
+        functionArgs: [stacks.transactions.uintCV(amount)],
+        network: new stacks.transactions.StacksTestnet(),
+        senderKey: 'your-private-key', // Never expose this in production
+      };
+
+      // TODO: Add Stacks.js interaction
+      alert(`Attempting to buy ${amount} tokens.`);
+    }
+  </script>
+</body>
+  </html>
+  
